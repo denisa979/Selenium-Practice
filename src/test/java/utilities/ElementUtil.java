@@ -27,21 +27,21 @@ public class ElementUtil {
 	public ElementUtil(WebDriver driver) {
 		this.driver = driver;
 	}
+	  //This method will accept int (in seconds) and execute Thread.sleep method for given duration
+    public static void sleep(int second) {
+        second = second * 1000;
+        try {
+            Thread.sleep(second);
+        } catch (InterruptedException e) {
+        }
+    }
 
 	private void nullCheck(CharSequence... value) {
 		if (value == null) {
 			throw new RuntimeException("===value/prop/attribute can not be null====");
 		}
 	}
-
-	public void doClick(By locator) {
-		getElement(locator).click();
-	}
-
-	public void doClick(String locatorType, String locatorValue) {
-		getElement(getLocator(locatorType, locatorValue)).click();
-	}
-
+	
 	public void doSendKeys(By locator, CharSequence... value) {
 		nullCheck(value);
 		getElement(locator).sendKeys(value);
@@ -50,6 +50,14 @@ public class ElementUtil {
 	public void doSendKeys(String locatorType, String locatorValue, CharSequence... value) {
 		nullCheck(value);
 		getElement(getLocator(locatorType, locatorValue)).sendKeys(value);
+	}
+	
+	     	public void doClick(By locator) {
+		getElement(locator).click();
+	}
+
+	public void doClick(String locatorType, String locatorValue) {
+		getElement(getLocator(locatorType, locatorValue)).click();
 	}
 
 	public String doElementGetText(By locator) {

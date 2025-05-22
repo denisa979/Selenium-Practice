@@ -1,4 +1,4 @@
-package practice;
+package com.selenium.step_definitions;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

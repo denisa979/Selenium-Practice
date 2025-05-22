@@ -1,32 +1,17 @@
-package utilities;
+package com.selenium.utilities;
 
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.*;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.NoSuchFrameException;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ElementUtil {
+public class BrowserUtils {
 
-	private WebDriver driver;
-
-	public ElementUtil(WebDriver driver) {
-		this.driver = driver;
-	}
+	public WebDriver driver;
+    
 	  //This method will accept int (in seconds) and execute Thread.sleep method for given duration
     public static void sleep(int second) {
         second = second * 1000;
@@ -81,7 +66,7 @@ public class ElementUtil {
 	public boolean doIsElementDisplayed(By locator) {
 		try {
 			return getElement(locator).isDisplayed();
-		} catch (NoSuchElementException e) {
+		} catch (org.openqa.selenium.NoSuchElementException e) {
 			System.out.println("element is not displayed");
 			return false;
 		}

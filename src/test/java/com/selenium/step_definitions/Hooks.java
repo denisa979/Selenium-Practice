@@ -1,13 +1,11 @@
-package practice;
+package com.selenium.step_definitions;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import utilities.ConfigurationReader;
-import utilities.Driver;
-import utilities.ElementUtil;
+import com.selenium.utilities.ConfigurationReader;
 
 public class Hooks {
 

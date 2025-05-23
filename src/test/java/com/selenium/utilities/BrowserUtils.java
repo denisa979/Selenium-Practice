@@ -20,6 +20,18 @@ public class BrowserUtils {
         } catch (InterruptedException e) {
         }
     }
+	     public static void waitFor(int seconds){
+        try {
+            Thread.sleep(seconds * 1000);
+        }catch(InterruptedException e){
+            e.printStackTrace();
+        }
+		 }
+	
+	     public static  WebElement waitForVisibility(By locator, int time){
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
 
 	private void nullCheck(CharSequence... value) {
 		if (value == null) {
@@ -37,7 +49,7 @@ public class BrowserUtils {
 		getElement(getLocator(locatorType, locatorValue)).sendKeys(value);
 	}
 	
-	     	public void doClick(By locator) {
+	public void doClick(By locator) {
 		getElement(locator).click();
 	}
 
@@ -180,7 +192,7 @@ public class BrowserUtils {
 
 	public void doSelectDropDownByContainsText(By locator, String partialText) {
 		Select select = new Select(getElement(locator));
-		select.selectByContainsVisibleText(partialText);
+		select.selectByVisibleText(partialText);
 	}
 
 	public void printDropDownOptionsText(By locator) {
@@ -485,7 +497,9 @@ public class BrowserUtils {
 		return null;
 
 	}
-
+	   public String getCurrentURL() {
+    return driver.getCurrentUrl();
+}
 
 	public String waitForURLContains(String fractionURL, long timeOut) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));

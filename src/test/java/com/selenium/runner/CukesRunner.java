@@ -13,9 +13,9 @@ import org.junit.runner.RunWith;
                 "me.jvt.cucumber.report.PrettyReports:target/cucumber"
         },
         features = "src/test/resources/features",
-        glue = "com/project/step_definitions",
+        glue = "com/selenium/step_definitions",
         dryRun = false,
-        tags ="",
+        tags ="@wip",
         publish = true // generating report with public link
 )
 

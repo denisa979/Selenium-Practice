@@ -1,5 +1,7 @@
 package com.selenium.step_definitions;
 
+import com.selenium.utilities.Driver;
+import com.selenium.utilities.BrowserUtils;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -20,7 +22,7 @@ public class Hooks {
             byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", scenario.getName());
         }
-        ElementUtil.sleep(2);
+        BrowserUtils.sleep(2);
         Driver.closeDriver();
     }
 }

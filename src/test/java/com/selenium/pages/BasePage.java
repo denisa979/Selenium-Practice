@@ -1,5 +1,6 @@
 package com.selenium.pages;
 
+import com.selenium.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,7 +14,7 @@ public abstract class BasePage {
 
     public BasePage() {
 
-        this.driver = com.selenium.pages.Driver.getDriver(); 
+        this.driver = Driver.getDriver(); 
     }
         public List<String> getElementsText(By locator) {
         List<WebElement> elements = driver.findElements(locator);

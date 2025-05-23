@@ -5,30 +5,25 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
+
 public class CompanyPage extends BasePage{
 
-   private By logo = By.xpath("//a[@class='nav__brand']");
+    private By logo = By.xpath("//a[@class='nav__brand']");
     private By welcomeMessage = By.xpath("//div//h1");
     private By primaryMenu = By.xpath("//ul[@id='menu-primary-menu']/li");
-    private By careersBtn = By.xpath("//span[@data-text='Careers']");
     private By allLinks = By.tagName("a");
     
-    public boolean isLogoDisplayed() {
+        public boolean isLogoDisplayed() {
         return driver.findElement(logo).isDisplayed();
     }
-
-    public String getWelcomeMessageText() {
+         public String getWelcomeMessageText() {
         return driver.findElement(welcomeMessage).getText();
     }
-
-    public List<WebElement> getMenuOptions() {
+    
+        public List<WebElement> getMenuOptions() {
         return driver.findElements(primaryMenu);
     }
-
-    public void clickCareersButton() {
-        driver.findElement(careersBtn).click();
-    }
-       public List<String> getLinks() {
+        public List<String> getLinks() {
         return getElementsText(allLinks);
     }
     
